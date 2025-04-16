@@ -11,4 +11,6 @@ public interface IEstudianteService {
     List<Materia> obtenerMateriasDeEstudiante(Long estudianteId);
     EstudianteDTO crearEstudiante(EstudianteDTO estudianteDTO);
     EstudianteDTO actualizarEstudiante(Long id, EstudianteDTO estudianteDTO);
+    List<EstudianteDTO> buscarEstudiantesPorNombre(String nombre);
+    List<EstudianteDTO> obtenerEstudiantesOrdenadosPorApellido();
 }

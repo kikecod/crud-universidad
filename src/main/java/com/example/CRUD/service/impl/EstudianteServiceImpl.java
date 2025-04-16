@@ -107,4 +107,20 @@ public class EstudianteServiceImpl implements IEstudianteService {
                 .motivoBaja(estudianteDTO.getMotivoBaja())
                 .build();
     }
+    @Override
+    public List<EstudianteDTO> buscarEstudiantesPorNombre(String nombre) {
+        return estudianteRepository.findByNombreContainingIgnoreCase(nombre)
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EstudianteDTO> obtenerEstudiantesOrdenadosPorApellido() {
+        return estudianteRepository.findAllByOrderByApellidoAsc()
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+
+    }
 }

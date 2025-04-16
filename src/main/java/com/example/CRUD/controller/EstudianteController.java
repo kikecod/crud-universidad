@@ -54,4 +54,13 @@ public class EstudianteController {
     public ResponseEntity<List<EstudianteDTO>> obtenerEstudianteActivo() {
         return ResponseEntity.ok(estudianteService.obtenerEstudianteActivo());
     }
+    @GetMapping("/buscar")
+    public ResponseEntity<List<EstudianteDTO>> buscarEstudiantesPorNombre(@RequestParam String nombre) {
+        return ResponseEntity.ok(estudianteService.buscarEstudiantesPorNombre(nombre));
+    }
+
+    @GetMapping("/ordenados-apellido")
+    public ResponseEntity<List<EstudianteDTO>> obtenerEstudiantesOrdenadosPorApellido() {
+        return ResponseEntity.ok(estudianteService.obtenerEstudiantesOrdenadosPorApellido());
+    }
 }
